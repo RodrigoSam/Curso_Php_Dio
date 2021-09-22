@@ -1,43 +1,22 @@
-<?php
+<<!doctype html>
+<html lang="Pt-Br">
 
-$categorias = ["infantil","adolescente","adulto","idoso"];
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Formulário de inscrição</title>
+</head>
 
-//print_r($categorias);
+<body>
 
-$nome = "Rodrigo";
-$idade = 4;
-//var_dump($nome,$idade);
+<p>FORMULÁRIO PARA INSCIÇÃO DE COMPETIDORES</p>
+<form  action = "Script.php" method = "post">
+    <p>Insira seu nome:  <input type="text" name = "nome"/></p>
+    <p>Insira sua idade:  <input type="text" name = "idade"/></p>
+    <p><input type="submit" value="Enviar dados do competidor para análise"/></p>
+</form>
 
-if($idade >= 6 && $idade <=12)
-{
-    for($i = 0; $i < count($categorias);$i++) {
-        if ($categorias[$i] == "infantil")
-        echo("A categoria do nadador " . $nome . " é " . $categorias[$i]);
-    }
-}
-else if($idade > 12 && $idade < 18)
-{
-    for($i = 0; $i < count($categorias);$i++)
-    {
-        if ($categorias[$i] == "adolescente")
-        echo("A categoria do nadador  " . $nome . " é " . $categorias[$i]);
-
-    }
-}
-else if($idade >= 18 && $idade < 65)
-{
-    for($i = 0; $i < count($categorias);$i++)
-    {
-        if ($categorias [$i] == "adulto")
-        echo("A categoria do nadador " .$nome. " é " . $categorias[$i]);
-    }
-}
-else if ($idade >= 65) {
-    for ($i = 0; $i < count($categorias); $i++) {
-        if ($categorias[$i] == "idoso")
-            echo("A categoria do nadador " . $nome . " é " . $categorias[$i]);
-    }
-}
-else {
-    echo"Não se enquadra em nenhuma categoria!";
-}
+</body>
+</html>
