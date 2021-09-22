@@ -1,4 +1,5 @@
 <?php
+    session_start();
 
 $categorias = ["infantil","adolescente","adulto","idoso"];
 
@@ -8,32 +9,33 @@ $idade = $_POST["idade"];
 
 if(empty($nome))
 {
- echo "O Campo nome deve ser preenchido";
- return;
+    $_SESSION ["mensagem-de-erro"] = "O Campo nome deve ser preenchido";
+    header("location: index.php");
 }
 
 if (strlen($nome)<2)
 {
-    echo"O nome deve possuir no mínimo dois caracteres";
-    return;
+    $_SESSION ["mensagem-de-erro"] = "O nome deve possuir no mínimo dois caracteres";
+    header("location: index.php");
 }
 
 if (strlen($nome)>=40)
 {
-    echo "O nome deve possuir no max 40 caracteres";
-    return;
+    $_SESSION ["mensagem-de-erro"] = "O nome deve possuir no max 40 caracteres";
+    header("location: index.php");
 }
 
 if (empty($idade))
 {
-    echo "Insira um número";
-    return;
+    $_SESSION ["mensagem-de-erro"] = "Insira um número";
+    header("location: index.php");
+
 }
 
 if (!is_numeric($idade))
 {
-    echo "Insira um número";
-    return;
+    $_SESSION ["mensagem-de-erro"] = "Insira um número";
+    header("location: index.php");
 }
 
 if($idade >= 6 && $idade <=12)

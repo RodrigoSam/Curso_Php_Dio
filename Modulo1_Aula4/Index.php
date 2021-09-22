@@ -1,4 +1,8 @@
-<<!doctype html>
+<?php
+    session_start();
+?>
+
+<!doctype html>
 <html lang="Pt-Br">
 
 <head>
@@ -11,8 +15,18 @@
 
 <body>
 
-<p>FORMULÁRIO PARA INSCIÇÃO DE COMPETIDORES</p>
+<p>FORMULÁRIO PARA INSCRIÇÃO DE COMPETIDORES</p>
 <form  action = "Script.php" method = "post">
+    <?php
+        $mensagenDeErro = isset($_SESSION["mensagem-de-erro"]) ? $_SESSION["mensagem-de-erro"] : "";
+            if (!empty($mensagenDeErro))
+            {
+                unset($_SESSION["mensagem-de-erro"]);
+                echo $mensagenDeErro;
+            }
+
+
+    ?>
     <p>Insira seu nome:  <input type="text" name = "nome"/></p>
     <p>Insira sua idade:  <input type="text" name = "idade"/></p>
     <p><input type="submit" value="Enviar dados do competidor para análise"/></p>
